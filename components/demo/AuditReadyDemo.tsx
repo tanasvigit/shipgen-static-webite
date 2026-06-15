@@ -12,7 +12,7 @@ const mockAuditLogs = [
 ];
 
 const AuditReadyDemo: React.FC = () => {
-  const handleCTA = useDemoCTA('/dashboard');
+  const handleCTA = useDemoCTA();
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLElement | null>>(new Map());
 

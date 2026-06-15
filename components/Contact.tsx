@@ -82,8 +82,8 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 93925 62193',
-      href: 'tel:+919392562193',
+      value: '+91 96426 12839',
+      href: 'tel:+919642612839',
       gradient: 'from-emerald-500 to-emerald-600',
     },
     {
@@ -306,10 +306,10 @@ const Contact: React.FC = () => {
               View Demo
             </Link>
             <Link
-              to="/dashboard"
+              to="/"
               className="px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 hover:scale-105 font-semibold"
             >
-              Go to Dashboard
+              Back to Home
             </Link>
           </div>
         </section>

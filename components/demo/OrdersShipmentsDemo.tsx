@@ -12,7 +12,7 @@ const mockOrders = [
 ];
 
 const OrdersShipmentsDemo: React.FC = () => {
-  const handleCTA = useDemoCTA('/app/logistics/shipments');
+  const handleCTA = useDemoCTA();
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 

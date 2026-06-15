@@ -224,10 +224,10 @@ const HowItWorks: React.FC = () => {
             Explore Orders Demo
           </Link>
           <Link
-            to="/dashboard"
+            to="/"
             className="px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 hover:scale-105 font-semibold"
           >
-            Go to Dashboard
+            Back to Home
           </Link>
         </div>
       </div>

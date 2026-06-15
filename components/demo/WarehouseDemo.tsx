@@ -12,7 +12,7 @@ const mockBins = [
 ];
 
 const WarehouseDemo: React.FC = () => {
-  const handleCTA = useDemoCTA('/app/warehouse/inventory');
+  const handleCTA = useDemoCTA();
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 

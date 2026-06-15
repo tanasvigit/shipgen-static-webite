@@ -33,7 +33,7 @@ class ApiClient {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
         localStorage.removeItem('user');
-        window.location.href = '/#/dashboard';
+        window.location.href = '/#/';
         throw new Error('Unauthorized');
       }
       if (response.status === 403) {

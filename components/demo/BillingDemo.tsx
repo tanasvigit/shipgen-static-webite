@@ -11,7 +11,7 @@ const mockInvoices = [
 ];
 
 const BillingDemo: React.FC = () => {
-  const handleCTA = useDemoCTA('/app/billing/invoices');
+  const handleCTA = useDemoCTA();
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 

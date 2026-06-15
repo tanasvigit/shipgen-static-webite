@@ -277,7 +277,7 @@ const WhyChooseUs: React.FC = () => {
           Experience the power of enterprise-grade logistics management. Start your free trial today.
         </p>
         <div className="flex items-center justify-center space-x-4 flex-wrap gap-3">
-          <Link to="/dashboard" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 btn-ripple font-semibold border border-transparent hover:border-blue-500">
+          <Link to="/" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 btn-ripple font-semibold border border-transparent hover:border-blue-500">
             Start Free Trial
           </Link>
           <Link to="/contact" className="px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-lg hover:border-indigo-300 transition-all duration-300 hover:scale-105 font-semibold">

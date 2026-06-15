@@ -5,7 +5,7 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 
 const MultiTenantDemo: React.FC = () => {
-  const handleCTA = useDemoCTA('/dashboard');
+  const handleCTA = useDemoCTA();
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 

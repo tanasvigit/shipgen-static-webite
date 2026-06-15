@@ -168,10 +168,10 @@ const LiveOperationsOverview: React.FC = () => {
               Open Live Operations <ArrowRight size={18} className="ml-2" />
             </Link>
             <Link
-              to="/dashboard"
+              to="/"
               className="inline-flex items-center px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 font-semibold"
             >
-              Go to Dashboard
+              Back to Home
             </Link>
           </div>
         </div>

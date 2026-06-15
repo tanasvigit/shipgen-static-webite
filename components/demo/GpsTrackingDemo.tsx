@@ -11,7 +11,7 @@ const mockTrack = [
 ];
 
 const GpsTrackingDemo: React.FC = () => {
-  const handleCTA = useDemoCTA('/app/live-operations');
+  const handleCTA = useDemoCTA();
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 

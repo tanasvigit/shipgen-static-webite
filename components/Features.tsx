@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
-  Package, Warehouse, Truck, Navigation, FileText, BarChart3,
+  Package, Warehouse, Truck, Navigation, FileText, BarChart3, LandPlot,
   ArrowRight, Sparkles
 } from 'lucide-react';
 import Navbar from './Navbar';
@@ -60,7 +60,8 @@ const Features: React.FC = () => {
     { title: 'Fleet & Driver Management', desc: 'Manage vehicles, assign drivers, track capacity, and monitor fleet status across operations.', icon: Truck, gradient: 'from-indigo-500 to-indigo-600', to: '/demo/fleet-drivers' },
     { title: 'Live GPS Tracking', desc: 'Real-time vehicle location updates, shipment status timeline, and operational visibility via WebSocket.', icon: Navigation, gradient: 'from-emerald-500 to-emerald-600', to: '/demo/gps-tracking' },
     { title: 'Billing & Invoicing', desc: 'Generate invoices from shipments, record payments, GST calculation, and financial reporting.', icon: FileText, gradient: 'from-amber-500 to-amber-600', to: '/demo/billing' },
-    { title: 'Reports & Analytics', desc: 'Revenue reports, outstanding invoices, operational KPIs, and audit-ready logging.', icon: BarChart3, gradient: 'from-teal-500 to-teal-600', to: '/demo/reports' }
+    { title: 'Reports & Analytics', desc: 'Revenue reports, outstanding invoices, operational KPIs, and audit-ready logging.', icon: BarChart3, gradient: 'from-teal-500 to-teal-600', to: '/demo/reports' },
+    { title: 'Yard Management System', desc: 'Gate-to-exit yard control with appointments, queues, dock allocation, loading visibility, and detention management.', icon: LandPlot, gradient: 'from-orange-500 to-amber-600', to: '/demo/yard-management' }
   ];
 
   return (
@@ -87,7 +88,7 @@ const Features: React.FC = () => {
               Everything you need to run logistics operations at scale
             </p>
             <p className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              From order management to billing, fleet tracking to warehouse operations — explore our complete suite of capabilities.
+              From order management to billing, fleet tracking to warehouse and yard operations — explore our complete suite of capabilities.
             </p>
           </div>
         </div>
@@ -134,8 +135,8 @@ const Features: React.FC = () => {
             <Link to="/demo/orders-shipments" className="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 btn-ripple font-semibold">
               Explore Demos
             </Link>
-            <Link to="/dashboard" className="px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 hover:scale-105 font-semibold">
-              Go to Dashboard
+            <Link to="/" className="px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 hover:scale-105 font-semibold">
+              Back to Home
             </Link>
           </div>
         </section>

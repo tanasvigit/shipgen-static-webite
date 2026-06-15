@@ -3,13 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 /**
  * Hook used by public demo pages.
- * Navigates directly to the target app route.
+ * Navigates to the contact page for demo requests.
  */
-export function useDemoCTA(targetAppPath: string) {
+export function useDemoCTA() {
   const navigate = useNavigate();
 
   return useCallback(() => {
-    navigate(targetAppPath);
-  }, [navigate, targetAppPath]);
+    navigate('/contact');
+  }, [navigate]);
 }
-

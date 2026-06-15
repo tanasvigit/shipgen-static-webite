@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Navigation, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Truck, Navigation, Users, ArrowRight, CheckCircle2, LandPlot } from 'lucide-react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
@@ -15,7 +15,8 @@ const TransportersFleetPage: React.FC = () => {
     'Vehicle maintenance and fuel reporting',
     'Live shipment status with proof-of-delivery',
     'Driver app for mobile updates and ETA',
-    'Operational dashboards and fleet analytics'
+    'Operational dashboards and fleet analytics',
+    'Yard management for gate, queue, dock, and detention control'
   ];
 
   return (
@@ -66,7 +67,8 @@ const TransportersFleetPage: React.FC = () => {
               {[
                 { icon: Truck, title: 'Fleet & Vehicle Management', desc: 'Manage vehicles and capacity' },
                 { icon: Users, title: 'Driver Management', desc: 'Assign drivers and track performance' },
-                { icon: Navigation, title: 'Live GPS Tracking', desc: 'Real-time vehicle location' }
+                { icon: Navigation, title: 'Live GPS Tracking', desc: 'Real-time vehicle location' },
+                { icon: LandPlot, title: 'Yard Management', desc: 'Gate, queue, dock & loading control' }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-indigo-50 transition-colors">
                   <div className="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0">
@@ -93,6 +95,9 @@ const TransportersFleetPage: React.FC = () => {
             </Link>
             <Link to="/demo/gps-tracking" className="inline-flex items-center px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 font-semibold">
               View GPS Tracking
+            </Link>
+            <Link to="/demo/yard-management" className="inline-flex items-center px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 font-semibold">
+              View Yard Management
             </Link>
           </div>
         </div>

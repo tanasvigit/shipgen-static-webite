@@ -162,10 +162,10 @@ const LiveShipmentStatus: React.FC = () => {
           </p>
         </div>
         <Link
-          to="/dashboard"
+          to="/"
           className="inline-flex items-center px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-gray-300"
         >
-          View in Dashboard <ArrowRight size={16} className="ml-2" />
+          Back to Home <ArrowRight size={16} className="ml-2" />
         </Link>
       </div>
 
