@@ -15,7 +15,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useDemoCTA } from '../../useDemoCTA';
+import { useDemoCTA } from '../../hooks/useDemoCTA';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import { YARD_MODULES } from '../yard/yardModules';

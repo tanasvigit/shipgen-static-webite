@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Database, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useDemoCTA } from '../../useDemoCTA';
+import { useDemoCTA } from '../../hooks/useDemoCTA';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 

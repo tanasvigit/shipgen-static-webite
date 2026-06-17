@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
-import { useDemoCTA } from '../../useDemoCTA';
+import { useDemoCTA } from '../../hooks/useDemoCTA';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 

@@ -1,8 +1,0 @@
-{
-  "name": "ShipGen Logistics & WMS",
-  "description": "An enterprise-grade logistics, supply chain, and warehouse management system with real-time tracking and analytics.",
-  "requestFramePermissions": [
-    "camera",
-    "geolocation"
-  ]
-}

@@ -6,7 +6,7 @@ export default {
     "./App.{js,ts,jsx,tsx}",
     "./index.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./useDemoCTA.tsx"
+    "./hooks/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {

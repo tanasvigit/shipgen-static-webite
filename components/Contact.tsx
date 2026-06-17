@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, Send, MessageSquare, Sparkles } from 'lucide-react
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const FORMSPREE_URL = 'https://formspree.io/f/mkovwadp';
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
 
 const Contact: React.FC = () => {
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());
@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(CONTACT_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -57,11 +57,11 @@ const Contact: React.FC = () => {
           message: formState.message,
         }),
       });
+      const data = await res.json().catch(() => ({}));
       if (res.ok) {
         setSubmitted(true);
         setFormState({ name: '', email: '', subject: '', message: '' });
       } else {
-        const data = await res.json().catch(() => ({}));
         setError(data.error || 'Something went wrong. Please try again.');
       }
     } catch {
