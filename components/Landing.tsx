@@ -29,7 +29,8 @@ import {
   Route,
   ChevronLeft,
   ChevronRight,
-  LandPlot
+  LandPlot,
+  CircleParking
 } from 'lucide-react';
 
 // Hero slides data
@@ -348,6 +349,14 @@ const Landing: React.FC = () => {
               gradient: 'from-orange-500 to-amber-600',
               delay: 600,
               to: '/demo/yard-management'
+            },
+            {
+              title: 'Parking Management System',
+              desc: 'Multi-floor parking with digital tickets, QR codes, occupancy tracking, payments, supervisor monitoring, and revenue reports.',
+              icon: <CircleParking size={24} />,
+              gradient: 'from-sky-500 to-indigo-600',
+              delay: 700,
+              to: '/demo/parking-management'
             }
           ].map((feature, idx) => (
             <Link

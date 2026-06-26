@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   ArrowRight, Navigation, BarChart3, Activity, Route,
-  ShieldCheck, Lock, Database, MapPin, DollarSign, Warehouse, LandPlot
+  ShieldCheck, Lock, Database, MapPin, DollarSign, Warehouse, LandPlot, CircleParking
 } from 'lucide-react';
 
 interface NavDropdownProps {
@@ -177,6 +177,10 @@ const Navbar: React.FC = () => {
               <Link to="/demo/yard-management" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
                 <div className="font-semibold mb-1">Yard Management System</div>
                 <div className="text-xs text-gray-500">Gate, queue, dock & yard control</div>
+              </Link>
+              <Link to="/demo/parking-management" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition-colors">
+                <div className="font-semibold mb-1">Parking Management System</div>
+                <div className="text-xs text-gray-500">Tickets, occupancy & payments</div>
               </Link>
             </NavDropdown>
 

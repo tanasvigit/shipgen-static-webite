@@ -15,6 +15,7 @@ import GpsTrackingDemo from './components/demo/GpsTrackingDemo';
 import BillingDemo from './components/demo/BillingDemo';
 import ReportsDemo from './components/demo/ReportsDemo';
 import YardManagementDemo from './components/demo/YardManagementDemo';
+import ParkingManagementDemo from './components/demo/ParkingManagementDemo';
 import MultiTenantDemo from './components/demo/MultiTenantDemo';
 import RoleBasedAccessDemo from './components/demo/RoleBasedAccessDemo';
 import AuditReadyDemo from './components/demo/AuditReadyDemo';
@@ -66,6 +67,7 @@ const App: React.FC = () => {
         <Route path="/demo/billing" element={<BillingDemo />} />
         <Route path="/demo/reports" element={<ReportsDemo />} />
         <Route path="/demo/yard-management" element={<YardManagementDemo />} />
+        <Route path="/demo/parking-management" element={<ParkingManagementDemo />} />
         <Route path="/demo/multi-tenant" element={<MultiTenantDemo />} />
         <Route path="/demo/role-based-access" element={<RoleBasedAccessDemo />} />
         <Route path="/demo/audit-ready" element={<AuditReadyDemo />} />

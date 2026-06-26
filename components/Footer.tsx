@@ -24,6 +24,7 @@ const Footer: React.FC = () => {
               <li><Link to="/why-choose" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">Why Choose Us</Link></li>
               <li><Link to="/demo/reports" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">Reports</Link></li>
               <li><Link to="/demo/yard-management" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">Yard Management</Link></li>
+              <li><Link to="/demo/parking-management" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">Parking Management</Link></li>
             </ul>
           </div>
           <div className="animate-fade-in-up animation-delay-150">
