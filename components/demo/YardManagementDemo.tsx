@@ -72,6 +72,10 @@ const YardManagementDemo: React.FC = () => {
 
   const controlTower = YARD_MODULES[0];
 
+  const scrollToModule = (moduleId: string) => {
+    document.getElementById(moduleId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
@@ -129,13 +133,14 @@ const YardManagementDemo: React.FC = () => {
           <h2 className="text-lg font-semibold text-slate-900 mb-4">Yard modules</h2>
           <div className="flex flex-wrap gap-2">
             {YARD_MODULES.map((mod) => (
-              <a
+              <button
                 key={mod.id}
-                href={`#${mod.id}`}
+                type="button"
+                onClick={() => scrollToModule(mod.id)}
                 className="text-xs font-medium px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 hover:border-orange-300 hover:text-orange-700 hover:bg-orange-50 transition-colors"
               >
                 {mod.badge}
-              </a>
+              </button>
             ))}
           </div>
         </section>

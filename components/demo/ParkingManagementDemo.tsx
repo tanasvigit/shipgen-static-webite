@@ -74,6 +74,10 @@ const ParkingManagementDemo: React.FC = () => {
 
   const facilityDashboard = PARKING_MODULES[0];
 
+  const scrollToModule = (moduleId: string) => {
+    document.getElementById(moduleId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
@@ -130,13 +134,14 @@ const ParkingManagementDemo: React.FC = () => {
           <h2 className="text-lg font-semibold text-slate-900 mb-4">Parking modules</h2>
           <div className="flex flex-wrap gap-2">
             {PARKING_MODULES.map((mod) => (
-              <a
+              <button
                 key={mod.id}
-                href={`#${mod.id}`}
+                type="button"
+                onClick={() => scrollToModule(mod.id)}
                 className="text-xs font-medium px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 hover:border-sky-300 hover:text-sky-700 hover:bg-sky-50 transition-colors"
               >
                 {mod.badge}
-              </a>
+              </button>
             ))}
           </div>
         </section>

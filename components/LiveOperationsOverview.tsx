@@ -162,7 +162,7 @@ const LiveOperationsOverview: React.FC = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/live-operations"
+              to="/contact"
               className="inline-flex items-center px-6 py-3 bg-white text-emerald-600 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 btn-ripple font-semibold"
             >
               Open Live Operations <ArrowRight size={18} className="ml-2" />
