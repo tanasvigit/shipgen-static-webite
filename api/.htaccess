@@ -1,0 +1,17 @@
+# Protect PHP internals from direct web access (Apache / LiteSpeed on cPanel)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^lib/ - [F,L]
+  RewriteRule ^handlers/ - [F,L]
+  RewriteRule ^bootstrap\.php$ - [F,L]
+  RewriteRule ^config\.php$ - [F,L]
+  RewriteRule ^router-dev\.php$ - [F,L]
+</IfModule>
+
+<Files "config.php">
+  Require all denied
+</Files>
+
+<Files "config.example.php">
+  Require all denied
+</Files>

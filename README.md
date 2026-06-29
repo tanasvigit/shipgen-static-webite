@@ -1,10 +1,12 @@
 # ShipGen Logistics — Marketing Site
 
-Static marketing website for the ShipGen logistics platform, with a small Node.js API for the contact form (SMTP).
+Static React marketing site with a **PHP contact API** for cPanel deployment. Build once, upload `dist/` — no Node.js required on the server.
 
 ## Run locally
 
-**Prerequisites:** Node.js 18+
+**Prerequisites:** Node.js 18+, PHP 8.1+ with OpenSSL (local dev only — cPanel provides PHP in production)
+
+On Windows, install [PHP](https://windows.php.net/download/) or XAMPP and add `php` to your PATH.
 
 1. Install dependencies:
 
@@ -12,82 +14,83 @@ Static marketing website for the ShipGen logistics platform, with a small Node.j
    npm install
    ```
 
-2. Configure email (required for contact form):
+2. Configure the contact API:
 
    ```bash
-   cp .env.example .env
+   cp api/config.example.php api/config.php
    ```
 
-   Edit `.env` and set `SMTP_PASS` to your `sales@shipgen.net` mailbox password.
+   Edit `api/config.php` with your SMTP credentials (same settings you used for the old Node API).
 
-3. Start the site **and** contact API together:
+3. Start frontend + PHP API:
 
    ```bash
    npm run dev
    ```
 
    - Frontend: [http://localhost:5175](http://localhost:5175)
-   - Contact API: [http://localhost:3001](http://localhost:3001) (proxied via `/api` in dev)
+   - Contact API: proxied at `/api/*` → PHP on port `8080`
 
-4. **Preview email theme in your browser** (before sending):
+4. **Preview email templates:**
 
-   - Sales notification: [http://localhost:3001/api/email/preview/sales](http://localhost:3001/api/email/preview/sales)
-   - User auto-reply: [http://localhost:3001/api/email/preview/autoreply](http://localhost:3001/api/email/preview/autoreply)
+   - Sales notification: [http://localhost:8080/api/email/preview/sales](http://localhost:8080/api/email/preview/sales)
+   - User auto-reply: [http://localhost:8080/api/email/preview/autoreply](http://localhost:8080/api/email/preview/autoreply)
 
-   You should see the blue→purple gradient header, logo, white card body, and dark footer.
-
-   **Restart the API after template changes:** stop `npm run dev` and run it again, or run `npm run dev:server` in a fresh terminal.
+5. Health check: [http://localhost:8080/api/health](http://localhost:8080/api/health)
 
 ## Contact form emails
 
 On submit, the API sends:
 
-1. **To `sales@shipgen.net`** — notification with name, email, subject, message (`Reply-To` set to the user)
-2. **To the user** — auto-reply from `noreply@shipgen.net`
+1. **To sales** — themed notification with form fields (`Reply-To` = visitor)
+2. **To the visitor** — themed auto-reply from `noreply@`
 
-SMTP settings (defaults in `.env.example`):
+Configure addresses in `api/config.php` (`sales_email`, `noreply_email`, SMTP settings).
 
-| Setting | Value |
-|---------|--------|
-| Host | `mail.shipgen.net` |
-| Port | `465` (SSL) |
-| Auth user | `sales@shipgen.net` |
-
-Ensure `noreply@shipgen.net` exists as a mailbox or alias on your mail server so the `From` address is accepted.
-
-Set `SITE_URL` and optionally `EMAIL_LOGO_URL` in `.env` so the Shipgen email template can load the logo in messages.
-
-## Build for production
+## Build & deploy to cPanel
 
 ```bash
 npm run build
 ```
 
-Deploy **`dist/`** as static files and run **`server/index.js`** on a Node host. Point your reverse proxy so `/api/contact` reaches the API (or set `VITE_CONTACT_API_URL` at build time to the full API URL).
+This produces:
 
-Example nginx location:
-
-```nginx
-location /api/ {
-  proxy_pass http://127.0.0.1:3001;
-}
+```
+dist/
+├── index.html          # React app
+├── assets/             # JS/CSS
+├── logo_logistic.png   # static assets from public/
+├── .htaccess           # SPA + /api routing
+└── api/                # PHP contact API (copied from api/)
+    ├── index.php
+    ├── config.example.php
+    ├── lib/
+    └── handlers/
 ```
 
-Set `ALLOWED_ORIGINS` in `.env` to your production site URL(s).
+### cPanel steps
+
+1. Upload **everything inside `dist/`** to `public_html/` (or your domain folder).
+2. On the server, copy `api/config.example.php` → `api/config.php` and set SMTP credentials.
+3. Ensure PHP 8.1+ is enabled for the domain.
+4. Test: `https://yourdomain.com/api/health` should return `{"ok":true,"themedEmails":true}`.
+
+The contact form posts to `/api/contact` on the same domain — no CORS or separate API host needed in production.
+
+Optional: set `site_url` in `api/config.php` to your live URL for email links and logo fallback.
 
 ## Project structure
 
 ```
-├── App.tsx
-├── components/          # Pages and UI
-├── hooks/               # Shared React hooks
-├── server/
-│   ├── index.js              # Contact form API
-│   └── email/
-│       ├── shipgenTemplate.js # Branded HTML layout
-│       └── contactEmails.js   # Sales + auto-reply content
-├── public/              # Static assets
-└── .env.example         # SMTP config template (copy to .env)
+├── api/                    # PHP contact API (source)
+│   ├── config.example.php  # Copy to config.php (gitignored)
+│   ├── index.php           # Router: /api/contact, /api/health, previews
+│   ├── handlers/
+│   └── lib/                # Mailer, templates
+├── components/             # React pages
+├── public/.htaccess        # Copied to dist/ on build
+├── scripts/copy-api.mjs    # Runs after vite build
+└── dist/                   # Deploy this folder (gitignored)
 ```
 
-**Security:** Never commit `.env` or email passwords to git.
+**Security:** Never commit `api/config.php` or SMTP passwords.

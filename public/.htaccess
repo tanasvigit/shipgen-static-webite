@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Contact API (PHP)
+  RewriteRule ^api/(.*)$ api/index.php [L,QSA]
+
+  # Static assets & built files
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # SPA fallback (HashRouter still benefits for direct path hits)
+  RewriteRule ^ index.html [L]
+</IfModule>

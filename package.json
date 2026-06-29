@@ -4,21 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "predev": "npx --yes kill-port 3001",
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
     "dev:client": "vite",
-    "dev:server": "node server/index.js",
+    "dev:api": "node scripts/dev-api.mjs",
     "dev:watch": "vite --watch",
-    "build": "vite build",
-    "start": "concurrently \"npm run dev:server\" \"npm run preview\"",
+    "build": "vite build && node scripts/copy-api.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
     "lucide-react": "^0.462.0",
-    "nodemailer": "^6.9.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3"
