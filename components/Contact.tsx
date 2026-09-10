@@ -74,9 +74,16 @@ const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'sales@shipgen.net',
-      href: 'mailto:sales@shipgen.net',
+      label: 'Email (India)',
+      value: 'sales-india@shipgen.net',
+      href: 'mailto:sales-india@shipgen.net',
+      gradient: 'from-sky-500 to-indigo-600',
+    },
+    {
+      icon: Mail,
+      label: 'Email (USA)',
+      value: 'sales-usa@shipgen.net',
+      href: 'mailto:sales-usa@shipgen.net',
       gradient: 'from-blue-500 to-blue-600',
     },
     {
@@ -88,10 +95,17 @@ const Contact: React.FC = () => {
     },
     {
       icon: MapPin,
-      label: 'Office',
+      label: 'Office (India)',
       value: 'Sunrise StartUp Towers, Madhurawada, IT SEZ, Hill No:3, Visakhapatnam-48, Andhra Pradesh, India',
-      href: 'https://maps.google.com',
+      href: 'https://maps.google.com/?q=Sunrise+StartUp+Towers,+Madhurawada,+Visakhapatnam',
       gradient: 'from-indigo-500 to-indigo-600',
+    },
+    {
+      icon: MapPin,
+      label: 'Office (USA)',
+      value: '29929 Autumn Gold Drive, New Hudson, MI 48165, USA',
+      href: 'https://maps.google.com/?q=29929+Autumn+Gold+Drive,+New+Hudson,+MI+48165',
+      gradient: 'from-violet-500 to-purple-600',
     },
   ];
 
