@@ -67,7 +67,7 @@ try {
     $safeSubject = htmlspecialchars($subject, ENT_QUOTES, 'UTF-8');
     $safeMessage = nl2br(htmlspecialchars($message, ENT_QUOTES, 'UTF-8'));
 
-    $salesHtml = email_shell($brand, 'Enterprise Logistics &amp; Warehouse Management', '
+    $salesHtml = email_shell($brand, 'Enterprise Fleet Management', '
       <h1 style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:24px;color:#0A0E1A;">New contact form submission</h1>
       <p style="margin:0 0 24px;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#4B5563;">
         A visitor submitted the contact form on the ' . htmlspecialchars($brand, ENT_QUOTES, 'UTF-8') . ' website.
