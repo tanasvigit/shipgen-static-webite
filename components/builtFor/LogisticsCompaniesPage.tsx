@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Package, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Truck, Package, MapPin, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
@@ -11,11 +11,11 @@ const LogisticsCompaniesPage: React.FC = () => {
 
   const benefits = [
     'End-to-end shipment tracking from pickup to delivery',
-    'Multi-carrier management and route optimization',
+    'Dispatch, loads, and routes connected to fleet reality',
     'Real-time GPS visibility for customers and operations',
-    'Automated proof-of-delivery and status updates',
-    'Integrated billing and GST-compliant invoicing',
-    'Scalable multi-tenant architecture for growth'
+    'Fleet & driver assignment with utilization insights',
+    'Live shipment status and proof-of-delivery context',
+    'Executive reports on on-time performance and exceptions'
   ];
 
   return (
@@ -27,7 +27,7 @@ const LogisticsCompaniesPage: React.FC = () => {
           <div className="relative h-64 md:h-80 lg:h-96">
             <img
               src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80"
-              alt="Logistics companies managing shipments"
+              alt="Logistics companies managing fleet shipments"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent" />
@@ -38,7 +38,7 @@ const LogisticsCompaniesPage: React.FC = () => {
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">Logistics Companies</h1>
               <p className="text-lg md:text-xl text-blue-100 max-w-2xl">
-                Streamline your operations with end-to-end shipment management, real-time tracking, and automated workflows.
+                Run orders, fleet, GPS, and analytics as one Fleet Management System—so operations stay connected.
               </p>
             </div>
           </div>
@@ -48,8 +48,8 @@ const LogisticsCompaniesPage: React.FC = () => {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ShipGen for Logistics Companies</h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              ShipGen empowers logistics providers to manage orders, shipments, and deliveries with full visibility.
-              From first-mile pickup to last-mile delivery, track every movement in real time.
+              ShipGen is the intelligence layer for modern fleets. Manage shipments and vehicles together,
+              turn GPS into business context, and act on the KPIs owners actually care about.
             </p>
             <ul className="space-y-3">
               {benefits.map((item, idx) => (
@@ -61,12 +61,13 @@ const LogisticsCompaniesPage: React.FC = () => {
             </ul>
           </div>
           <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Key Capabilities</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-4">FMS Capabilities</h3>
             <div className="space-y-4">
               {[
                 { icon: Package, title: 'Order & Shipment Management', desc: 'Create, assign, and track shipments' },
-                { icon: MapPin, title: 'Live GPS Tracking', desc: 'Real-time vehicle and delivery status' },
-                { icon: Truck, title: 'Fleet Management', desc: 'Manage vehicles and driver assignments' }
+                { icon: Truck, title: 'Fleet & Driver Management', desc: 'Vehicles, drivers, utilization' },
+                { icon: MapPin, title: 'Live GPS Tracking', desc: 'Location with business meaning' },
+                { icon: BarChart3, title: 'Reports & Analytics', desc: 'Insights, alerts, and ROI' }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-blue-50 transition-colors">
                   <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
@@ -83,9 +84,9 @@ const LogisticsCompaniesPage: React.FC = () => {
         </div>
 
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-3">Ready to Transform Your Logistics?</h2>
+          <h2 className="text-2xl font-bold mb-3">Ready to Transform Your Fleet Ops?</h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Join leading logistics companies using ShipGen to streamline operations and improve customer satisfaction.
+            Keep your systems. Add ShipGen intelligence—and turn fleet data into decisions and ROI.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/demo/orders-shipments" className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 btn-ripple font-semibold">

@@ -71,10 +71,10 @@ const LiveOperationsOverview: React.FC = () => {
       id: 'operational-dashboard',
       num: '04',
       title: 'Operational Dashboard',
-      description: 'Live metrics and KPIs for your logistics operations. Monitor active shipments, vehicle utilization, and delivery performance at a glance.',
-      features: ['Active shipments count', 'Vehicle utilization metrics', 'Delivery performance KPIs', 'Real-time alerts'],
+      description: 'Live metrics and KPIs for your fleet. Monitor active shipments, vehicle utilization, downtime signals, and delivery performance at a glance.',
+      features: ['Active shipments count', 'Vehicle utilization metrics', 'Delivery performance KPIs', 'Real-time fleet alerts'],
       link: '/live-operations/dashboard',
-      linkText: 'View Operational Dashboard',
+      linkText: 'View Fleet Dashboard',
       icon: BarChart3,
       gradient: 'from-emerald-600 to-teal-600'
     }
@@ -103,10 +103,10 @@ const LiveOperationsOverview: React.FC = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium mb-4">
-              Monitor your entire logistics network in real time
+              Monitor your entire fleet in real time
             </p>
             <p className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              GPS-enabled vehicle tracking, live shipment status, WebSocket updates, and operational dashboards—all in one place.
+              GPS vehicle tracking, live shipment status, instant event updates, and fleet dashboards—all in one place.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Activity, Package, Truck, DollarSign, AlertCircle, CheckCircle2, TrendingUp } from 'lucide-react';
+import { Activity, Package, Truck, AlertCircle, CheckCircle2, TrendingUp } from 'lucide-react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
@@ -30,17 +30,17 @@ const INITIAL_KPIS: Kpi[] = [
     iconClass: 'text-emerald-600',
   },
   {
-    label: "Today's Revenue",
-    value: '₹82.4L',
-    change: '+8% booking growth',
-    icon: DollarSign,
+    label: 'Fleet Utilization',
+    value: '87%',
+    change: '+5% vs last week',
+    icon: TrendingUp,
     bgClass: 'bg-purple-100',
     iconClass: 'text-purple-600',
   },
   {
-    label: 'Pending Invoices',
-    value: '32',
-    change: '-3% aging > 7 days',
+    label: 'Vehicles Needing Attention',
+    value: '7',
+    change: '3 high priority',
     icon: AlertCircle,
     bgClass: 'bg-orange-100',
     iconClass: 'text-orange-600',
@@ -50,7 +50,7 @@ const INITIAL_KPIS: Kpi[] = [
 const UTILIZATION = [
   { label: 'Line haul', percent: 78, trend: '+6%' },
   { label: 'Last mile', percent: 64, trend: '+3%' },
-  { label: 'Warehouse docks', percent: 91, trend: '-2%' },
+  { label: 'Idle / available', percent: 22, trend: '-2%' },
 ];
 
 const SLA_ROWS = [
@@ -61,8 +61,8 @@ const SLA_ROWS = [
 
 const ALERTS = [
   {
-    title: 'Warehouse A nearing capacity',
-    detail: 'Outbound slots full after 17:00 hrs',
+    title: 'Vehicle VH-103 underperforming',
+    detail: '52 hrs downtime · utilization 61% · review recurring repairs',
     tone: 'warning',
   },
   {
@@ -93,9 +93,9 @@ const OperationalDashboard: React.FC = () => {
       <main className="max-w-6xl mx-auto px-4 py-10 space-y-6">
         <header>
         <p className="text-xs uppercase tracking-[0.4em] text-emerald-600 font-semibold">Live KPIs</p>
-        <h1 className="text-3xl font-bold text-gray-900 mt-2">Operational Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mt-2">Fleet Dashboard</h1>
         <p className="text-sm text-gray-600 mt-1">
-          Mock data that mirrors the analytics experience inside ShipZen. Every card stays in sync without hitting the API.
+          Mock data that mirrors the analytics experience inside ShipGen. Every card stays in sync without hitting the API.
         </p>
       </header>
 

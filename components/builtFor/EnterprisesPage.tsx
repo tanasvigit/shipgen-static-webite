@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, ShieldCheck, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Globe, Truck, BarChart3, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
@@ -10,12 +10,12 @@ const EnterprisesPage: React.FC = () => {
   }, []);
 
   const benefits = [
-    'Enterprise-scale multi-tenant SaaS architecture',
-    'Role-based access control for teams and departments',
-    'Complete audit logging for compliance and governance',
-    'GST-ready billing and financial reporting',
-    'Secure, scalable infrastructure',
-    'Integration-ready APIs for ERP and legacy systems'
+    'Fleet intelligence across business units and regions',
+    'Unified view of orders, vehicles, GPS, and KPIs',
+    'Utilization, downtime, and cost visibility at scale',
+    'Executive dashboards for owners and managers',
+    'Keep existing GPS / ELD / TMS — add ShipGen on top',
+    'Built for complex fleets that need decisions, not more data'
   ];
 
   return (
@@ -23,12 +23,11 @@ const EnterprisesPage: React.FC = () => {
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Hero with Image */}
         <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl mb-12">
           <div className="relative h-64 md:h-80 lg:h-96">
             <img
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
-              alt="Enterprise business operations"
+              alt="Enterprise fleet operations"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-teal-900/80 via-teal-900/40 to-transparent" />
@@ -39,19 +38,18 @@ const EnterprisesPage: React.FC = () => {
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">Enterprises</h1>
               <p className="text-lg md:text-xl text-teal-100 max-w-2xl">
-                Enterprise-grade logistics platform with multi-tenant architecture, RBAC, and full audit compliance.
+                Enterprise fleet intelligence—from reporting what happened to recommending what should happen next.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Content */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ShipGen for Enterprises</h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              ShipGen is built for enterprise requirements: multi-tenant isolation, granular role-based access, 
-              complete audit trails, and GST-compliant billing. Scale across business units while maintaining security and compliance.
+              ShipGen connects the management picture across your fleet stack. Normalize, analyze, detect, and recommend—
+              so leadership sees what matters now, what needs attention, and what to do next.
             </p>
             <ul className="space-y-3">
               {benefits.map((item, idx) => (
@@ -66,9 +64,9 @@ const EnterprisesPage: React.FC = () => {
             <h3 className="text-lg font-bold text-gray-900 mb-4">Key Capabilities</h3>
             <div className="space-y-4">
               {[
-                { icon: ShieldCheck, title: 'Multi-Tenant & RBAC', desc: 'Secure, role-based access' },
-                { icon: BarChart3, title: 'Reports & Analytics', desc: 'Financial and operational insights' },
-                { icon: Globe, title: 'Audit-Ready', desc: 'Complete compliance logging' }
+                { icon: Truck, title: 'Fleet & Driver Management', desc: 'Assets, utilization, and cost' },
+                { icon: MapPin, title: 'Live GPS Tracking', desc: 'Telematics with business context' },
+                { icon: BarChart3, title: 'Reports & Analytics', desc: 'Executive insights and ROI' }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-teal-50 transition-colors">
                   <div className="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
@@ -84,18 +82,17 @@ const EnterprisesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="bg-gradient-to-r from-teal-600 to-cyan-600 rounded-2xl p-8 text-center text-white">
-          <h2 className="text-2xl font-bold mb-3">Ready for Enterprise-Grade Logistics?</h2>
+          <h2 className="text-2xl font-bold mb-3">Ready for Enterprise Fleet Intelligence?</h2>
           <p className="text-teal-100 mb-6 max-w-2xl mx-auto">
-            Join enterprises using ShipGen for scalable, secure, and compliant logistics operations.
+            Your fleet already generates the data. ShipGen turns that data into intelligence.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/demo/multi-tenant"
+              to="/demo/reports"
               className="inline-flex items-center px-6 py-3 bg-white text-teal-600 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 btn-ripple font-semibold"
             >
-              View Multi-Tenant Demo <ArrowRight size={18} className="ml-2" />
+              View Analytics Demo <ArrowRight size={18} className="ml-2" />
             </Link>
             <Link
               to="/contact"

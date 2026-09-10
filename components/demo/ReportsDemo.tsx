@@ -6,9 +6,9 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 
 const mockKpis = [
-  { label: 'Monthly Revenue', value: '₹ 24,35,000' },
-  { label: 'Outstanding Invoices', value: '₹ 3,10,000' },
-  { label: 'On-Time Deliveries', value: '96.2%' }
+  { label: 'Fleet Utilization', value: '87%' },
+  { label: 'Vehicles Needing Attention', value: '7' },
+  { label: 'Downtime Hours (period)', value: '126 hrs' }
 ];
 
 const ReportsDemo: React.FC = () => {
@@ -68,11 +68,11 @@ const ReportsDemo: React.FC = () => {
               Reports &amp; Analytics
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 transition-all duration-500">
-              Turn operations data into actionable insights
+              Turn fleet data into decisions, action, and ROI
             </h1>
             <p className="text-slate-600 text-sm md:text-base max-w-xl transition-all duration-500">
-              Track revenue, utilization, exceptions, and receivables to keep a tight control on
-              your logistics P&amp;L.
+              Executive fleet view of utilization, downtime, maintenance, and vehicles requiring
+              attention—Measure → Identify → Act → Improve.
             </p>
           </div>
           <div 
@@ -81,12 +81,12 @@ const ReportsDemo: React.FC = () => {
             }`}
             style={{ willChange: 'transform, opacity' }}
           >
-            <h2 className="text-sm font-semibold text-slate-900 mb-3">Example analytics flow</h2>
+            <h2 className="text-sm font-semibold text-slate-900 mb-3">Example intelligence flow</h2>
             <ol className="space-y-2 text-sm text-slate-700">
-              <li>1. Orders, shipments, invoices, and payments generate event logs.</li>
-              <li>2. Data is aggregated into revenue and performance metrics.</li>
-              <li>3. Dashboards highlight trends and exceptions.</li>
-              <li>4. Finance and ops teams act on the same numbers.</li>
+              <li>1. GPS, dispatch, and fleet events generate operational data.</li>
+              <li>2. ShipGen normalizes and analyzes into fleet KPIs.</li>
+              <li>3. Dashboards surface insights, alerts, and exceptions.</li>
+              <li>4. Managers act on recommended next steps.</li>
             </ol>
           </div>
         </section>
@@ -107,16 +107,16 @@ const ReportsDemo: React.FC = () => {
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
-                title: 'Revenue reports',
-                desc: 'Analyze revenue by time period, customer, and lane.'
+                title: 'Utilization intelligence',
+                desc: 'Active vs idle capacity and vehicle productivity.'
               },
               {
-                title: 'Outstanding invoices',
-                desc: 'See who owes you how much, and for how long.'
+                title: 'Downtime & maintenance',
+                desc: 'Hours down, recurring repairs, and cost signals.'
               },
               {
                 title: 'Operational KPIs',
-                desc: 'On-time delivery, average transit times, and exception rates.'
+                desc: 'On-time delivery, exceptions, and vehicles needing attention.'
               }
             ].map((feature, idx) => (
               <div
@@ -189,10 +189,10 @@ const ReportsDemo: React.FC = () => {
           }`}
         >
           <div>
-            <p className="text-sm font-semibold mb-1">See real analytics from your tenant</p>
+            <p className="text-sm font-semibold mb-1">See fleet analytics in action</p>
             <p className="text-xs text-sky-100 max-w-md">
-              In the live app, all charts and tables are powered by your actual orders, shipments,
-              invoices, and payments.
+              In the live app, charts and tables are powered by your actual fleet, GPS, and
+              shipment operations data.
             </p>
           </div>
           <button

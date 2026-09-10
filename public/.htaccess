@@ -2,10 +2,7 @@
   RewriteEngine On
   RewriteBase /
 
-  # Contact API (PHP)
-  RewriteRule ^api/(.*)$ api/index.php [L,QSA]
-
-  # Static assets & built files
+  # Static assets, PHP, and built files
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]

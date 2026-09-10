@@ -4,35 +4,18 @@ ShipGen Logistics — Local development commands
 Prerequisites
 -------------
 - Node.js 18+
-- PHP 8.1+ with OpenSSL (Windows: https://windows.php.net/download/ or XAMPP — add php to PATH)
 
 First-time setup
 ----------------
 npm install
 
-copy api\config.example.php api\config.php
-(Edit api\config.php with your SMTP credentials)
-
-Run locally (frontend + PHP contact API)
-----------------------------------------
+Run locally (frontend only)
+---------------------------
 npm run dev
 
-  Frontend:  http://localhost:5175
-  PHP API:   http://localhost:8080/api/health
+  Frontend:  http://localhost:5173
 
-Run frontend only (no PHP / no mail)
-------------------------------------
-npm run dev:client
-
-Run PHP API only
-----------------
-npm run dev:api
-
-Test contact API
-----------------
-Health:    http://localhost:8080/api/health
-Preview:   http://localhost:8080/api/email/preview/sales
-           http://localhost:8080/api/email/preview/autoreply
+  Note: contact.php runs on cPanel (PHP). Vite does not execute PHP locally.
 
 Build for production (creates dist/ folder)
 -------------------------------------------
@@ -48,4 +31,4 @@ npm run preview
 Deploy
 ------
 Upload everything inside dist/ to cPanel public_html/
-Ensure api/config.php on the server has live SMTP settings.
+Edit contact.php $CONFIG with live SMTP settings.

@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
-  Package, Warehouse, Truck, Navigation, FileText, BarChart3, LandPlot, CircleParking,
-  ArrowRight, Sparkles
+  Package, Truck, Navigation, BarChart3, ArrowRight, Sparkles
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -44,7 +43,6 @@ const Features: React.FC = () => {
     };
   }, []);
 
-  // Scroll to section when navigating with state
   useEffect(() => {
     const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
     if (scrollTo?.startsWith('feature-')) {
@@ -55,14 +53,34 @@ const Features: React.FC = () => {
   }, [location.pathname, location.state]);
 
   const capabilities = [
-    { title: 'Order & Shipment Management', desc: 'Create, assign, and track shipments from pickup to delivery with real-time status updates.', icon: Package, gradient: 'from-blue-500 to-blue-600', to: '/demo/orders-shipments' },
-    { title: 'Warehouse Management (WMS)', desc: 'Bin-level inventory tracking, zone-rack-bin hierarchy, inward/outward flows, and GRN management.', icon: Warehouse, gradient: 'from-purple-500 to-purple-600', to: '/demo/warehouse' },
-    { title: 'Fleet & Driver Management', desc: 'Manage vehicles, assign drivers, track capacity, and monitor fleet status across operations.', icon: Truck, gradient: 'from-indigo-500 to-indigo-600', to: '/demo/fleet-drivers' },
-    { title: 'Live GPS Tracking', desc: 'Real-time vehicle location updates, shipment status timeline, and operational visibility via WebSocket.', icon: Navigation, gradient: 'from-emerald-500 to-emerald-600', to: '/demo/gps-tracking' },
-    { title: 'Billing & Invoicing', desc: 'Generate invoices from shipments, record payments, GST calculation, and financial reporting.', icon: FileText, gradient: 'from-amber-500 to-amber-600', to: '/demo/billing' },
-    { title: 'Reports & Analytics', desc: 'Revenue reports, outstanding invoices, operational KPIs, and audit-ready logging.', icon: BarChart3, gradient: 'from-teal-500 to-teal-600', to: '/demo/reports' },
-    { title: 'Yard Management System', desc: 'Gate-to-exit yard control with appointments, queues, dock allocation, loading visibility, and detention management.', icon: LandPlot, gradient: 'from-orange-500 to-amber-600', to: '/demo/yard-management' },
-    { title: 'Parking Management System', desc: 'Multi-floor parking with digital tickets, QR codes, occupancy tracking, payments, supervisor monitoring, and revenue reports.', icon: CircleParking, gradient: 'from-sky-500 to-indigo-600', to: '/demo/parking-management' }
+    {
+      title: 'Order & Shipment Management',
+      desc: 'Dispatch, loads, and routes stay connected to the fleet picture—so shipment work isn’t trapped in a silo.',
+      icon: Package,
+      gradient: 'from-blue-500 to-blue-600',
+      to: '/demo/orders-shipments'
+    },
+    {
+      title: 'Fleet & Driver Management',
+      desc: 'Run fleet operations and assets with utilization, downtime, maintenance, and cost intelligence—not just vehicle lists.',
+      icon: Truck,
+      gradient: 'from-indigo-500 to-indigo-600',
+      to: '/demo/fleet-drivers'
+    },
+    {
+      title: 'Live GPS Tracking',
+      desc: 'Track location and telematics, then ask the business question: what does this vehicle mean right now?',
+      icon: Navigation,
+      gradient: 'from-emerald-500 to-emerald-600',
+      to: '/demo/gps-tracking'
+    },
+    {
+      title: 'Reports & Analytics',
+      desc: 'Executive view of active vs down, utilization, maintenance, downtime, and savings opportunities—automated instead of manual.',
+      icon: BarChart3,
+      gradient: 'from-teal-500 to-teal-600',
+      to: '/demo/reports'
+    }
   ];
 
   return (
@@ -70,7 +88,6 @@ const Features: React.FC = () => {
       <Navbar />
 
       <div className="space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
         <div
           ref={(el) => { if (el) { sectionRefs.current.set('header', el); el.setAttribute('data-section-id', 'header'); } }}
           className={`relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50 rounded-md border border-blue-100/50 p-3 md:p-4 transition-all duration-500 hover:border-blue-200/80 hover:shadow-xl ${revealedSections.has('header') ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -80,29 +97,28 @@ const Features: React.FC = () => {
           <div className="relative text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-blue-200/50 text-blue-700 text-sm font-semibold mb-6 shadow-sm">
               <Sparkles size={14} className="text-blue-600" />
-              <span>Platform Features</span>
+              <span>Fleet Management System</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5 leading-tight">
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">Platform Features</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium mb-4">
-              Everything you need to run logistics operations at scale
+              Everything you need to run modern fleet operations
             </p>
             <p className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              From order management to billing, fleet tracking to warehouse, yard, and parking operations — explore our complete suite of capabilities.
+              Four focused modules that turn GPS, dispatch, and fleet data into insights, alerts, and actions.
             </p>
           </div>
         </div>
 
-        {/* 1. Platform Capabilities */}
         <section
           id="feature-capabilities"
           ref={(el) => { if (el) { sectionRefs.current.set('capabilities', el); el.setAttribute('data-section-id', 'capabilities'); } }}
           className={`${revealedSections.has('capabilities') ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-center">Platform Capabilities</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12 text-center">Core modules to power your logistics operations</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 text-center">FMS Capabilities</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-12 text-center">Core modules of the ShipGen Fleet Intelligence platform</p>
+          <div className="grid md:grid-cols-2 gap-6">
             {capabilities.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -116,30 +132,24 @@ const Features: React.FC = () => {
                     <Icon size={24} />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">{item.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{item.desc}</p>
+                  <span className="inline-flex items-center text-sm font-semibold text-blue-600">
+                    Explore demo <ArrowRight size={14} className="ml-1" />
+                  </span>
                 </Link>
               );
             })}
           </div>
         </section>
 
-        {/* CTA */}
-        <section
-          ref={(el) => { if (el) { sectionRefs.current.set('cta', el); el.setAttribute('data-section-id', 'cta'); } }}
-          className={`bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white ${revealedSections.has('cta') ? 'animate-fade-in-up' : 'opacity-0'}`}
-        >
-          <h2 className="text-2xl font-bold mb-3">Ready to Get Started?</h2>
+        <section className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">Keep your systems. Add intelligence.</h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Experience the power of enterprise-grade logistics management. Create your first order and see the platform in action.
+            ShipGen sits above GPS, ELD, and TMS—so you get decisions and ROI without ripping out what already works.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/demo/orders-shipments" className="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 btn-ripple font-semibold">
-              Explore Demos
-            </Link>
-            <Link to="/" className="px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 hover:scale-105 font-semibold">
-              Back to Home
-            </Link>
-          </div>
+          <Link to="/contact" className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition">
+            Talk to us <ArrowRight size={18} className="ml-2" />
+          </Link>
         </section>
       </div>
 

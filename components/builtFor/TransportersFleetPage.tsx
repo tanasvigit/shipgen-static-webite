@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Navigation, Users, ArrowRight, CheckCircle2, LandPlot } from 'lucide-react';
+import { Truck, Navigation, Users, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
@@ -10,13 +10,12 @@ const TransportersFleetPage: React.FC = () => {
   }, []);
 
   const benefits = [
-    'Real-time GPS tracking for entire fleet',
+    'Real-time GPS tracking for the entire fleet',
     'Driver assignment and shipment scheduling',
-    'Vehicle maintenance and fuel reporting',
-    'Live shipment status with proof-of-delivery',
-    'Driver app for mobile updates and ETA',
-    'Operational dashboards and fleet analytics',
-    'Yard management for gate, queue, dock, and detention control'
+    'Utilization, downtime, and cost intelligence',
+    'Live shipment status with location context',
+    'Know active vs idle capacity at a glance',
+    'Executive dashboards for fleet ROI'
   ];
 
   return (
@@ -39,7 +38,7 @@ const TransportersFleetPage: React.FC = () => {
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">Transporters & Fleet Operators</h1>
               <p className="text-lg md:text-xl text-indigo-100 max-w-2xl">
-                Manage your fleet, assign drivers, and track every vehicle in real time with GPS-enabled visibility.
+                Ideal for operationally complex fleets (~30–200 vehicles). Turn fragmented fleet data into decisions and ROI.
               </p>
             </div>
           </div>
@@ -49,8 +48,8 @@ const TransportersFleetPage: React.FC = () => {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Why ShipGen for Transporters & Fleet Operators</h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              ShipGen gives fleet operators complete control over vehicles and drivers. Track location in real time,
-              assign shipments, capture fuel reports, and keep customers informed with live delivery updates.
+              ShipGen gives fleet operators complete control over vehicles and drivers—plus intelligence on utilization,
+              downtime, and cost. Keep GPS and TMS; add the management layer that recommends what to do next.
             </p>
             <ul className="space-y-3">
               {benefits.map((item, idx) => (
@@ -67,8 +66,8 @@ const TransportersFleetPage: React.FC = () => {
               {[
                 { icon: Truck, title: 'Fleet & Vehicle Management', desc: 'Manage vehicles and capacity' },
                 { icon: Users, title: 'Driver Management', desc: 'Assign drivers and track performance' },
-                { icon: Navigation, title: 'Live GPS Tracking', desc: 'Real-time vehicle location' },
-                { icon: LandPlot, title: 'Yard Management', desc: 'Gate, queue, dock & loading control' }
+                { icon: Navigation, title: 'Live GPS Tracking', desc: 'Location with business context' },
+                { icon: BarChart3, title: 'Reports & Analytics', desc: 'Utilization, downtime, and ROI' }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 hover:bg-indigo-50 transition-colors">
                   <div className="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center flex-shrink-0">
@@ -87,7 +86,7 @@ const TransportersFleetPage: React.FC = () => {
         <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-3">Ready to Optimize Your Fleet?</h2>
           <p className="text-indigo-100 mb-6 max-w-2xl mx-auto">
-            Join transporters and fleet operators using ShipGen for real-time visibility and efficient operations.
+            Know what is happening. Know why. Know what to do next.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/demo/fleet-drivers" className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 btn-ripple font-semibold">
@@ -96,8 +95,8 @@ const TransportersFleetPage: React.FC = () => {
             <Link to="/demo/gps-tracking" className="inline-flex items-center px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 font-semibold">
               View GPS Tracking
             </Link>
-            <Link to="/demo/yard-management" className="inline-flex items-center px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 font-semibold">
-              View Yard Management
+            <Link to="/contact" className="inline-flex items-center px-6 py-3 border-2 border-white/40 text-white rounded-lg hover:border-white/80 transition-all duration-300 font-semibold">
+              Contact Us
             </Link>
           </div>
         </div>

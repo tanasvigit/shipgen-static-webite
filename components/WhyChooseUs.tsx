@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { 
-  ShieldCheck, Warehouse, MapPin, DollarSign, Lock, Database,
-  Layers, Navigation, FileText, Users, Settings, Award, Sparkles
+import {
+  Package, Truck, MapPin, BarChart3, Award, Layers, Lightbulb
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -40,7 +39,6 @@ const WhyChooseUs: React.FC = () => {
     };
   }, []);
 
-  // Scroll: to section when navigating with state, or to top when opening page from main nav
   useEffect(() => {
     const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
     if (scrollTo?.startsWith('feature-')) {
@@ -52,99 +50,93 @@ const WhyChooseUs: React.FC = () => {
 
   const features = [
     {
-      id: 'feature-multi-tenant',
-      title: 'Multi-Tenant SaaS Architecture',
-      to: '/demo/multi-tenant',
-      description: 'Complete tenant isolation with company-scoped data and role-based access control. Each company operates in its own secure environment with no data leakage between tenants.',
-      icon: ShieldCheck,
+      id: 'feature-orders',
+      title: 'Connected Order & Shipment Management',
+      to: '/demo/orders-shipments',
+      description: 'Dispatch, loads, and routes stay connected to fleet reality—so shipment work isn’t trapped in a silo from vehicles and drivers.',
+      icon: Package,
+      gradient: 'from-blue-500 to-blue-600',
+      details: [
+        'Loads, dispatch, and delivery tracking',
+        'Pickup and drop locations',
+        'Status from create to delivered',
+        'Tied to vehicles and drivers',
+        'Operational visibility end to end'
+      ]
+    },
+    {
+      id: 'feature-fleet',
+      title: 'Fleet Decision Intelligence',
+      to: '/demo/fleet-drivers',
+      description: 'Move beyond tracking lists. Utilization, downtime reasons, recurring repairs, and cost per vehicle—so managers know what to do next.',
+      icon: Truck,
       gradient: 'from-indigo-500 to-indigo-600',
       details: [
-        'Complete data isolation per company',
-        'Scalable multi-tenant infrastructure',
-        'Role-based access control (7 role types)',
-        'Secure API endpoints with tenant validation',
-        'Independent billing and subscriptions'
+        'Vehicle and driver management',
+        'Utilization intelligence (active vs idle)',
+        'Downtime reasons and lost availability',
+        'Maintenance and repair patterns',
+        'Cost per vehicle and asset economics'
       ]
     },
     {
-      id: 'feature-bin-warehouse',
-      title: 'Bin-Level Warehouse Inventory',
-      to: '/demo/warehouse',
-      description: 'Zone-rack-bin hierarchy with SKU-level tracking, inward/outward flows, and GRN management. Track inventory down to the exact bin location for maximum accuracy.',
-      icon: Warehouse,
-      gradient: 'from-purple-500 to-purple-600',
-      details: [
-        'Zone → Rack → Bin hierarchy',
-        'SKU-level inventory tracking',
-        'GRN (Goods Receipt Note) processing',
-        'Put-away and pick operations',
-        'Inventory movements and transfers',
-        'Real-time stock levels'
-      ]
-    },
-    {
-      id: 'feature-gps-tracking',
-      title: 'Real-Time GPS Tracking',
+      id: 'feature-gps',
+      title: 'GPS with Business Context',
       to: '/demo/gps-tracking',
-      description: 'Live vehicle location updates and shipment status timeline powered by WebSocket technology. Monitor your entire fleet in real-time with instant status updates.',
+      description: 'Keep tracking vehicles. ShipGen adds the intelligence layer on top of GPS—from “where is the vehicle?” to “what does it mean to the business?”',
       icon: MapPin,
       gradient: 'from-emerald-500 to-emerald-600',
       details: [
-        'Real-time GPS vehicle tracking',
-        'Live shipment status updates',
-        'WebSocket instant notifications',
-        'Operational dashboards',
-        'Route history and analytics',
-        'Geofencing capabilities'
+        'Live GPS and telematics',
+        'Shipment location timeline',
+        'Instant status notifications',
+        'Fleet map and filters',
+        'Business meaning on every pin'
       ]
     },
     {
-      id: 'feature-gst-billing',
-      title: 'GST-Ready Billing',
-      to: '/demo/billing',
-      description: 'Automated invoice generation, GST calculation (18%), payment tracking, and financial reporting. Complete billing solution compliant with Indian tax regulations.',
-      icon: DollarSign,
+      id: 'feature-reports',
+      title: 'Insights, Alerts & Actions',
+      to: '/demo/reports',
+      description: 'Executive fleet dashboards that answer what owners care about: utilization, downtime, maintenance spend, vehicles needing attention, and savings opportunities.',
+      icon: BarChart3,
       gradient: 'from-amber-500 to-amber-600',
       details: [
-        'Auto-generate invoices from shipments',
-        'GST calculation (18%)',
-        'Multiple payment modes (Cash, Bank, UPI, Card)',
-        'Payment tracking and reconciliation',
-        'Financial reports and analytics',
-        'Outstanding invoice management'
+        'Automated centralized reporting',
+        'Measure → Identify → Act → Improve',
+        'Vehicles requiring attention',
+        'Potential savings opportunities',
+        'Decision intelligence—not just charts'
       ]
     },
     {
-      id: 'feature-rbac',
-      title: 'Role-Based Access Control',
-      to: '/demo/role-based-access',
-      description: 'Seven role types (Admin, Operations, Warehouse, Finance, Driver, Customer) with granular permissions. Control who can access and modify what data.',
-      icon: Lock,
-      gradient: 'from-blue-500 to-blue-600',
-      details: [
-        'Company Admin - Full platform control',
-        'Operations Manager - Shipment management',
-        'Warehouse Manager - Inventory operations',
-        'Finance Team - Billing and payments',
-        'Driver - Shipment updates and tracking',
-        'Customer - Shipment tracking only',
-        'Granular permission system'
-      ]
-    },
-    {
-      id: 'feature-audit-ready',
-      title: 'Audit-Ready System',
-      to: '/demo/audit-ready',
-      description: 'Complete audit logging for all data mutations, status changes, and financial transactions. Every action is logged with user, timestamp, and details for compliance.',
-      icon: Database,
+      id: 'feature-layer',
+      title: 'Keep Your Systems. Add Intelligence.',
+      to: '/features',
+      description: 'ShipGen is designed to sit above your existing stack. Keep GPS. Keep ELD. Keep TMS. Add the management intelligence layer.',
+      icon: Layers,
       gradient: 'from-teal-500 to-teal-600',
       details: [
-        'Complete audit trail for all operations',
-        'User action logging',
-        'Data change history',
-        'Financial transaction logs',
-        'Compliance-ready reporting',
-        'Immutable audit records'
+        'Normalize → Analyze → Detect → Recommend',
+        'Insights: what matters now',
+        'Alerts: what needs attention',
+        'Actions: what to do next',
+        'Built for fleets of ~30–200 vehicles'
+      ]
+    },
+    {
+      id: 'feature-roi',
+      title: 'Built for Fleet ROI',
+      to: '/contact',
+      description: 'Focus management attention on measurable fleet economics: less downtime, less maintenance waste, higher utilization, less admin time.',
+      icon: Lightbulb,
+      gradient: 'from-rose-500 to-rose-600',
+      details: [
+        '↓ Downtime — more productive vehicles',
+        '↓ Maintenance waste — recurring repair visibility',
+        '↑ Utilization — underused assets surfaced',
+        '↓ Admin time — less manual reporting',
+        'Know what, why, and what to do next'
       ]
     }
   ];
@@ -153,10 +145,8 @@ const WhyChooseUs: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 via-blue-50/30 to-white text-gray-900">
       <Navbar />
 
-      {/* Main Content */}
       <div className="space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Professional Header Section */}
-      <div 
+      <div
         ref={(el) => {
           if (el) {
             sectionRefs.current.set('header', el);
@@ -167,37 +157,31 @@ const WhyChooseUs: React.FC = () => {
           revealedSections.has('header') ? 'animate-fade-in-up' : 'opacity-0'
         }`}
       >
-        {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-72 h-72 bg-indigo-200/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
         <div className="absolute bottom-0 right-0 w-56 h-56 bg-purple-200/20 rounded-full blur-3xl translate-y-1/2 translate-x-1/2"></div>
-        
+
         <div className="relative text-center max-w-4xl mx-auto">
-          {/* Badge */}
           <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-indigo-200/50 text-indigo-700 text-sm font-semibold mb-6 shadow-sm">
             <Award size={14} className="text-indigo-600" />
-            <span>Enterprise Excellence</span>
+            <span>Fleet Intelligence</span>
           </div>
-          
-          {/* Main Heading */}
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5 leading-tight">
             <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Why Choose ShipGen
             </span>
           </h1>
-          
-          {/* Subtitle */}
+
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium mb-4">
-            Built for enterprise logistics operations with production-grade architecture
+            The intelligence layer for modern fleets
           </p>
-          
-          {/* Supporting description */}
+
           <p className="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Discover the competitive advantages that make ShipGen the preferred choice for logistics companies, warehouses, and fleet operators worldwide.
+            Your fleet already generates the data. ShipGen turns that data into intelligence—for logistics companies, transporters, and enterprises.
           </p>
         </div>
       </div>
 
-      {/* Features Grid */}
       <div className="grid md:grid-cols-2 gap-6">
         {features.map((feature) => (
           <Link
@@ -226,42 +210,7 @@ const WhyChooseUs: React.FC = () => {
         ))}
       </div>
 
-      {/* Technology Stack */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white">
-        <h2 className="text-2xl font-bold mb-4">Modern Technology Stack</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div>
-            <h3 className="font-semibold mb-2">Frontend</h3>
-            <ul className="space-y-1 text-sm text-blue-100">
-              <li>• React with TypeScript</li>
-              <li>• Tailwind CSS</li>
-              <li>• Material Design</li>
-              <li>• Real-time WebSocket</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Backend</h3>
-            <ul className="space-y-1 text-sm text-blue-100">
-              <li>• Node.js with Express</li>
-              <li>• PostgreSQL Database</li>
-              <li>• Prisma ORM</li>
-              <li>• Socket.IO</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Security</h3>
-            <ul className="space-y-1 text-sm text-blue-100">
-              <li>• JWT Authentication</li>
-              <li>• Role-Based Access Control</li>
-              <li>• Tenant Isolation</li>
-              <li>• Audit Logging</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div 
+      <div
         ref={(el) => {
           if (el) {
             sectionRefs.current.set('cta', el);
@@ -272,16 +221,16 @@ const WhyChooseUs: React.FC = () => {
           revealedSections.has('cta') ? 'animate-fade-in-up' : 'opacity-0'
         }`}
       >
-        <h2 className="text-2xl font-bold text-gray-900 mb-3">Ready to Transform Your Operations?</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-3">Ready to Add Fleet Intelligence?</h2>
         <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-          Experience the power of enterprise-grade logistics management. Start your free trial today.
+          Keep GPS. Keep ELD. Keep TMS. Add ShipGen—and turn fleet data into decisions, action, and ROI.
         </p>
         <div className="flex items-center justify-center space-x-4 flex-wrap gap-3">
-          <Link to="/" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 btn-ripple font-semibold border border-transparent hover:border-blue-500">
-            Start Free Trial
-          </Link>
-          <Link to="/contact" className="px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-lg hover:border-indigo-300 transition-all duration-300 hover:scale-105 font-semibold">
+          <Link to="/contact" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105 btn-ripple font-semibold">
             Schedule Demo
+          </Link>
+          <Link to="/features" className="px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-lg hover:border-indigo-300 transition-all duration-300 hover:scale-105 font-semibold">
+            Explore Features
           </Link>
         </div>
       </div>

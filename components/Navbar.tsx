@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   ArrowRight, Navigation, BarChart3, Activity, Route,
-  ShieldCheck, Lock, Database, MapPin, DollarSign, Warehouse, LandPlot, CircleParking
+  Package, Truck, MapPin, Lightbulb
 } from 'lucide-react';
 
 interface NavDropdownProps {
@@ -58,9 +58,7 @@ const Navbar: React.FC = () => {
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -68,11 +66,8 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest('nav')) {
-        setActiveDropdown(null);
-      }
+      if (!target.closest('nav')) setActiveDropdown(null);
     };
-
     if (activeDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
       return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -91,12 +86,8 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-    };
+  useEffect(() => () => {
+    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
   }, []);
 
   const clearCloseTimeout = () => {
@@ -152,35 +143,19 @@ const Navbar: React.FC = () => {
             >
               <Link to="/demo/orders-shipments" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                 <div className="font-semibold mb-1">Order & Shipment Management</div>
-                <div className="text-xs text-gray-500">Create, assign, and track shipments</div>
-              </Link>
-              <Link to="/demo/warehouse" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
-                <div className="font-semibold mb-1">Warehouse Management (WMS)</div>
-                <div className="text-xs text-gray-500">Bin-level inventory tracking</div>
+                <div className="text-xs text-gray-500">Loads, dispatch, and delivery tracking</div>
               </Link>
               <Link to="/demo/fleet-drivers" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                 <div className="font-semibold mb-1">Fleet & Driver Management</div>
-                <div className="text-xs text-gray-500">Manage vehicles and drivers</div>
+                <div className="text-xs text-gray-500">Vehicles, drivers, utilization & cost</div>
               </Link>
               <Link to="/demo/gps-tracking" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                 <div className="font-semibold mb-1">Live GPS Tracking</div>
-                <div className="text-xs text-gray-500">Real-time vehicle location</div>
-              </Link>
-              <Link to="/demo/billing" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
-                <div className="font-semibold mb-1">Billing & Invoicing</div>
-                <div className="text-xs text-gray-500">GST-ready billing system</div>
+                <div className="text-xs text-gray-500">Location with business context</div>
               </Link>
               <Link to="/demo/reports" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">
                 <div className="font-semibold mb-1">Reports & Analytics</div>
-                <div className="text-xs text-gray-500">Operational KPIs and insights</div>
-              </Link>
-              <Link to="/demo/yard-management" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors">
-                <div className="font-semibold mb-1">Yard Management System</div>
-                <div className="text-xs text-gray-500">Gate, queue, dock & yard control</div>
-              </Link>
-              <Link to="/demo/parking-management" onClick={closeDropdown} className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition-colors">
-                <div className="font-semibold mb-1">Parking Management System</div>
-                <div className="text-xs text-gray-500">Tickets, occupancy & payments</div>
+                <div className="text-xs text-gray-500">Fleet KPIs, insights, and ROI</div>
               </Link>
             </NavDropdown>
 
@@ -193,10 +168,10 @@ const Navbar: React.FC = () => {
               onNavigate={() => navigateOrScrollTop('/how-it-works')}
             >
               {[
-                { id: 'step-01', num: '01', title: 'Create Orders & Shipments', desc: 'Define pickup and delivery addresses', badgeClass: 'bg-blue-100', textClass: 'text-blue-600' },
-                { id: 'step-02', num: '02', title: 'Manage Inventory & Warehouses', desc: 'Track bin-level inventory, process GRN', badgeClass: 'bg-purple-100', textClass: 'text-purple-600' },
-                { id: 'step-03', num: '03', title: 'Track Vehicles & Shipments Live', desc: 'Monitor real-time GPS locations', badgeClass: 'bg-emerald-100', textClass: 'text-emerald-600' },
-                { id: 'step-04', num: '04', title: 'Generate Invoices & Reports', desc: 'Auto-generate invoices and access reports', badgeClass: 'bg-amber-100', textClass: 'text-amber-600' },
+                { id: 'step-01', num: '01', title: 'Create Orders & Shipments', desc: 'Dispatch loads and routes', badgeClass: 'bg-blue-100', textClass: 'text-blue-600' },
+                { id: 'step-02', num: '02', title: 'Manage Fleet & Drivers', desc: 'Vehicles, drivers, utilization', badgeClass: 'bg-indigo-100', textClass: 'text-indigo-600' },
+                { id: 'step-03', num: '03', title: 'Track Vehicles Live', desc: 'GPS with business meaning', badgeClass: 'bg-emerald-100', textClass: 'text-emerald-600' },
+                { id: 'step-04', num: '04', title: 'Act on Insights', desc: 'Reports, alerts, and ROI', badgeClass: 'bg-amber-100', textClass: 'text-amber-600' },
               ].map((item) => (
                 <Link
                   key={item.id}
@@ -255,8 +230,8 @@ const Navbar: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <Route size={16} className="text-emerald-600" />
                   <div>
-                    <div className="font-semibold">WebSocket Updates</div>
-                    <div className="text-xs text-gray-500">Instant real-time notifications</div>
+                    <div className="font-semibold">Live Event Stream</div>
+                    <div className="text-xs text-gray-500">Instant fleet notifications</div>
                   </div>
                 </div>
               </Link>
@@ -264,8 +239,8 @@ const Navbar: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <BarChart3 size={16} className="text-emerald-600" />
                   <div>
-                    <div className="font-semibold">Operational Dashboard</div>
-                    <div className="text-xs text-gray-500">Live metrics and KPIs</div>
+                    <div className="font-semibold">Fleet Dashboard</div>
+                    <div className="text-xs text-gray-500">Utilization and KPIs</div>
                   </div>
                 </div>
               </Link>
@@ -280,12 +255,10 @@ const Navbar: React.FC = () => {
               onNavigate={() => navigateOrScrollTop('/why-choose')}
             >
               {[
-                { to: '/demo/multi-tenant', icon: ShieldCheck, title: 'Multi-Tenant SaaS Architecture', iconClass: 'text-indigo-600', bgClass: 'hover:bg-indigo-50 hover:text-indigo-600' },
-                { to: '/demo/warehouse', icon: Warehouse, title: 'Bin-Level Warehouse Inventory', iconClass: 'text-purple-600', bgClass: 'hover:bg-purple-50 hover:text-purple-600' },
-                { to: '/demo/gps-tracking', icon: MapPin, title: 'Real-Time GPS Tracking', iconClass: 'text-emerald-600', bgClass: 'hover:bg-emerald-50 hover:text-emerald-600' },
-                { to: '/demo/billing', icon: DollarSign, title: 'GST-Ready Billing', iconClass: 'text-amber-600', bgClass: 'hover:bg-amber-50 hover:text-amber-600' },
-                { to: '/demo/role-based-access', icon: Lock, title: 'Role-Based Access Control', iconClass: 'text-blue-600', bgClass: 'hover:bg-blue-50 hover:text-blue-600' },
-                { to: '/demo/audit-ready', icon: Database, title: 'Audit-Ready System', iconClass: 'text-teal-600', bgClass: 'hover:bg-teal-50 hover:text-teal-600' },
+                { to: '/demo/orders-shipments', icon: Package, title: 'Connected Dispatch', iconClass: 'text-blue-600', bgClass: 'hover:bg-blue-50 hover:text-blue-600' },
+                { to: '/demo/fleet-drivers', icon: Truck, title: 'Fleet Decision Intelligence', iconClass: 'text-indigo-600', bgClass: 'hover:bg-indigo-50 hover:text-indigo-600' },
+                { to: '/demo/gps-tracking', icon: MapPin, title: 'GPS with Business Context', iconClass: 'text-emerald-600', bgClass: 'hover:bg-emerald-50 hover:text-emerald-600' },
+                { to: '/demo/reports', icon: Lightbulb, title: 'Insights, Alerts & Actions', iconClass: 'text-amber-600', bgClass: 'hover:bg-amber-50 hover:text-amber-600' },
               ].map((item) => {
                 const IconComponent = item.icon;
                 return (

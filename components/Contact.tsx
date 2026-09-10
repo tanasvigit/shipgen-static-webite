@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, Send, MessageSquare, Sparkles } from 'lucide-react
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || '/api/contact';
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL || '/contact.php';
 
 const Contact: React.FC = () => {
   const [revealedSections, setRevealedSections] = useState<Set<string>>(new Set());

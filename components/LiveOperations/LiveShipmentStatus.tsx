@@ -69,7 +69,7 @@ const MOCK_SHIPMENTS: Shipment[] = [
     orderId: 'ORD-2024-014',
     status: 'DELIVERED',
     customerName: 'Arvind Textiles',
-    pickupAddress: 'Ahmedabad Central Warehouse',
+    pickupAddress: 'Ahmedabad Central Hub',
     deliveryAddress: 'Okhla Industrial Estate · Delhi',
     vehicle: { plateNumber: 'GJ18 PL 7345' },
     driver: { name: 'Shankar S.' },
@@ -82,7 +82,7 @@ const MOCK_SHIPMENTS: Shipment[] = [
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 42).toISOString(),
         latitude: 23.0225,
         longitude: 72.5714,
-        description: 'Loaded at Ahmedabad warehouse',
+        description: 'Loaded at Ahmedabad hub',
       },
       {
         id: 'EVT-5',

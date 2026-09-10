@@ -9,18 +9,10 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Contact from './components/Contact';
 import LiveOperationsOverview from './components/LiveOperationsOverview';
 import OrdersShipmentsDemo from './components/demo/OrdersShipmentsDemo';
-import WarehouseDemo from './components/demo/WarehouseDemo';
 import FleetDriversDemo from './components/demo/FleetDriversDemo';
 import GpsTrackingDemo from './components/demo/GpsTrackingDemo';
-import BillingDemo from './components/demo/BillingDemo';
 import ReportsDemo from './components/demo/ReportsDemo';
-import YardManagementDemo from './components/demo/YardManagementDemo';
-import ParkingManagementDemo from './components/demo/ParkingManagementDemo';
-import MultiTenantDemo from './components/demo/MultiTenantDemo';
-import RoleBasedAccessDemo from './components/demo/RoleBasedAccessDemo';
-import AuditReadyDemo from './components/demo/AuditReadyDemo';
 import LogisticsCompaniesPage from './components/builtFor/LogisticsCompaniesPage';
-import Warehouses3PLsPage from './components/builtFor/Warehouses3PLsPage';
 import TransportersFleetPage from './components/builtFor/TransportersFleetPage';
 import EnterprisesPage from './components/builtFor/EnterprisesPage';
 import RealTimeVehicleTracking from './components/LiveOperations/RealTimeVehicleTracking';
@@ -59,26 +51,15 @@ const App: React.FC = () => {
         <Route path="/why-choose" element={<WhyChooseUs />} />
         <Route path="/contact" element={<Contact />} />
 
-        {/* Demo experiences */}
         <Route path="/demo/orders-shipments" element={<OrdersShipmentsDemo />} />
-        <Route path="/demo/warehouse" element={<WarehouseDemo />} />
         <Route path="/demo/fleet-drivers" element={<FleetDriversDemo />} />
         <Route path="/demo/gps-tracking" element={<GpsTrackingDemo />} />
-        <Route path="/demo/billing" element={<BillingDemo />} />
         <Route path="/demo/reports" element={<ReportsDemo />} />
-        <Route path="/demo/yard-management" element={<YardManagementDemo />} />
-        <Route path="/demo/parking-management" element={<ParkingManagementDemo />} />
-        <Route path="/demo/multi-tenant" element={<MultiTenantDemo />} />
-        <Route path="/demo/role-based-access" element={<RoleBasedAccessDemo />} />
-        <Route path="/demo/audit-ready" element={<AuditReadyDemo />} />
 
-        {/* Industry pages */}
         <Route path="/built-for/logistics-companies" element={<LogisticsCompaniesPage />} />
-        <Route path="/built-for/warehouses-3pls" element={<Warehouses3PLsPage />} />
         <Route path="/built-for/transporters-fleet" element={<TransportersFleetPage />} />
         <Route path="/built-for/enterprises" element={<EnterprisesPage />} />
 
-        {/* Live operations deep-dive pages */}
         <Route path="/live-operations/vehicle-tracking" element={<RealTimeVehicleTracking />} />
         <Route path="/live-operations/shipment-status" element={<LiveShipmentStatus />} />
         <Route path="/live-operations/websocket-updates" element={<WebSocketUpdates />} />
